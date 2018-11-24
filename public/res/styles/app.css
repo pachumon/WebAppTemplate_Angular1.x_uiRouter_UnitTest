@@ -1,0 +1,88 @@
+.categoryHeader{
+    color: black;
+    font-weight: bold;
+    padding: 5px 0 0 20px;
+    background-color:#00a65a;
+    height: 30px;
+    border: 1px solid rgb(226, 214, 214);
+}
+
+
+.categoryContent{
+    color: black;    
+    padding: 5px 0 0 20px;    
+    height: 30px;
+    border: 1px solid #e2d6d6;
+}
+
+.iconText{
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.alertcontent{
+    color: #E74C3C;
+}
+
+.roundedbtn {   
+    border: 2px solid #3a85bfbf;
+    border-radius: 40px;
+    background: transparent;  
+    width: 100px;  
+    padding: 2px 0 0 10px;
+  }
+
+  .actionalert{      
+      border: 1px solid #e2d6d6;      
+      height: 30px;
+      padding: 5px 0 0 20px; 
+      font-weight: bold;
+  }
+
+  .actionalertSuccess{
+    background-color:  #21c4c4bf;
+    color: black;    
+  }
+
+  .actionalertFailure{
+    background-color: #f2dede;
+    color:  #a94442;
+  }
+
+  .btncancel{
+    background-color:#00a65a;
+    color: #fffaf0
+  }
+  
+  .btncancel:hover{
+    background-color:#0e9156;
+    color: #fffaf0
+  }
+  
+  .btnsubmit{
+    background-color: #E74C3C;
+    color:#fffaf0;
+  }
+  .btnsubmit:hover{
+    background-color: #ac3e32;
+    color:#fffaf0;
+  }
+
+  .bookActionsForm{
+    border: 1px solid rgb(226, 214, 214);
+    padding: 10px 0 10px 0;
+    margin: 10px 0 10px 0;
+  }
+
+  .form-group.required .control-label:after {
+    content:"*";
+    color:red;
+  }
+
+  .btnsubmit.disabled, .btnsubmit[disabled]{
+    background-color: rgb(224, 136, 127);    
+  }
+
+ 
+
+  

@@ -1,0 +1,95 @@
+<div class="row">
+
+    <div class="col-md-12 col-xs-12 col-sm-12" style="background-color: white">
+        <div class="row x_title">
+            <!-- add Book button-->
+            <a type="submit" class="pull-right roundedbtn" ui-sref="bookActions({ action: 'create',id:'0'})">
+                <i class="fa fa-plus-circle"></i> Add Book
+            </a>
+            <!--
+
+             Write Your Code Here To Show the Add Book button as shown in requirement document.
+
+               upon cliking this button app should navigate to create page(create state)
+
+             -->
+
+            <!--End Of add Book button-->
+            <div class="col-md-6">
+
+                <h3>Book List <small></small></h3>
+                <!--Write Your Code Here To Show alert messages as shown in requirement document.-->
+                <div ng-if="vm.alertMessage!==''" class="actionalert" ng-class="{{vm.itemDeleted}}?'actionalertSuccess':'actionalertFailure'">
+                    {{vm.alertMessage}}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <!--Write Your Code Here To List The Book Categories as shown in requirement document-->
+                <div class="categoryHeader" ng-click="vm.applyCategoryFilter('')">
+                    All Categories
+                </div>
+                <div class="categoryContent" ng-repeat="category in vm.categories">
+                    <div ng-click="vm.applyCategoryFilter(category)">{{category}}</div>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <div class="input-group">
+                    <input type="text" ng-model="vm.tablefilter" class="form-control" placeholder="Search for..." />
+                    <span class="input-group-addon">
+                        <i class="fa fa-search"></i>
+                    </span>
+                </div>
+                <br>
+                <br>
+                <!--Write Your Code here to list the Books as shown in requirement document-->
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Controls</th>
+                    </tr>
+                    <tr ng-repeat="product in vm.products |filter:vm.tablefilter">
+                        <td>{{product.name}}</td>
+                        <td>{{product.category}}</td>
+                        <td>{{product.description}}</td>
+                        <td>{{product.price}}</td>
+                        <td>
+                            <span class="iconText"><a ui-sref="bookActions({ action: 'edit',id:'{{product._id}}'})"><i class="fa fa-edit"></i>Edit</a></span><br>
+                            <span dialog-form id={{product._id}} class="iconText alertcontent modalbtn"><i class="fa fa-trash"></i>Remove</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!--Modal Content for Remove-->
+
+        <!--Writ your code for modal content here. this modal shuould open for confirmation when remove button clicked-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Are you sure you want to Remove?</h4>
+                        <input type="hidden" value="" id="currentItem">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="removeItem">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End of Modal Content for Remove-->
+
+    </div>
+
+</div>

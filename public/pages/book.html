@@ -1,0 +1,97 @@
+<div class="row">
+    <div class="clearfix" style="padding-bottom: 5%"> </div>
+
+    <div class="col-md-8 col-sm-8 col-xs-8 col-xs-offset-2 col-md-offset-2 col-sm-offset-2 bg-white">
+        <div class="clearfix" style="padding-bottom: 1%"> </div>
+        <a type="submit" class="pull-right roundedbtn" ui-sref="booklist()">
+            <i class="fa fa-chevron-circle-left"></i> Back
+        </a>
+        <!--
+    Create your Add and Edit Forms here.
+    Validate the form fields in angular
+    Show validation errors under each of the fields in realtime
+    Enable the submit/update button only if the form data is valid 
+    -->
+        <div class="col-md-10 col-sm-10 col-xs-10 col-xs-offset-1 col-md-offset-1 col-sm-offset-1 bg-white">
+            <form class="form-horizontal bookActionsForm" name="bookeditform" novalidate ng-submit="vm.formsubmit()">
+                <fieldset>
+                    <div>
+                        <h4 style="padding-left: 20px">{{vm.formTitle}}</h4>
+                    </div>
+                    <hr width="80%">
+                    
+                    <div style="margin-bottom: 20px" class="col-sm-10 col-sm-offset-1" ng-if="vm.alertMessage!==''" class="actionalert" ng-class="{{vm.productchanged}}?'actionalertSuccess':'actionalertFailure'">
+                        {{vm.alertMessage}}
+                    </div>
+                    <div class="form-group required" ng-class="{'has-error':bookeditform.name.$invalid && bookeditform.name.$touched}">
+                        <label for="name" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="vm.book.name" name="name" required class="form-control" id="name"
+                                placeholder="Name">
+                        </div>
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <span class="help-block" ng-messages="bookeditform.name.$error" ng-if="bookeditform.name.$invalid && bookeditform.name.$touched">
+                                <span ng-message="required">
+                                    Name is required.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group required" ng-class="{'has-error':bookeditform.category.$invalid && bookeditform.category.$touched}">
+                        <label for="category" class="col-sm-2 control-label">Category</label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="vm.book.category" name="category" required class="form-control"
+                                id="category" placeholder="Category">
+                        </div>
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <span class="help-block" ng-messages="bookeditform.category.$error" ng-if="bookeditform.category.$invalid && bookeditform.category.$touched">
+                                <span ng-message="required">
+                                    Category is required.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group required" ng-class="{'has-error':bookeditform.price.$invalid && bookeditform.price.$touched}">
+                        <label for="price" class="col-sm-2 control-label">Price</label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="vm.book.price" name="price" required class="form-control" id="price"
+                                placeholder="Price">
+                        </div>
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <span class="help-block" ng-messages="bookeditform.price.$error" ng-if="bookeditform.price.$invalid && bookeditform.price.$touched">
+                                <span ng-message="required">
+                                    Price is required.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group required" ng-class="{'has-error':bookeditform.description.$invalid && bookeditform.description.$touched}">
+                        <label for="description" class="col-sm-2 control-label">Description</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" ng-model="vm.book.description" name="description" required
+                                rows="3" id="description" placeholder="Description"></textarea>
+                        </div>
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <span class="help-block" ng-messages="bookeditform.description.$error" ng-if="bookeditform.description.$invalid && bookeditform.description.$touched">
+                                <span ng-message="required">
+                                    Price is required.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-2">
+                            <button type="button" class="btn btncancel" ng-click="vm.reset()">Cancel</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="submit" class="btn btnsubmit" ng-disabled="bookeditform.$invalid">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
